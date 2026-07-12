@@ -1,0 +1,55 @@
+[package]
+name = "megacrypt"
+version = "1.0.0"
+edition = "2021"
+description = "Production-grade encryption SDK"
+license = "MIT"
+authors = ["Afolabi Mubarak"]
+
+[dependencies]
+# Core cryptography
+chacha20poly1305 = "0.10"
+rand = "0.8"
+getrandom = { version = "0.2", features = ["js"] }
+rand_core = "0.6"
+blake3 = "1.5"
+argon2 = "0.5"
+zeroize = { version = "1.7", features = ["derive"] }
+
+# Key exchange & signing
+x25519-dalek = "2"
+ed25519-dalek = "2"
+kyber = "0.1"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+base64 = "0.22.1"
+hex = "0.4"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Time handling
+chrono = "0.4"
+
+
+
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
+
+
+# FFI for SDK
+[lib]
+name = "megacrypt"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "megacrypt_cli"
+path = "src/main.rs"
+
+[dev-dependencies]
+criterion = "0.5"
+
