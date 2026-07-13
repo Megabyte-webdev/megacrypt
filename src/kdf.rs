@@ -7,7 +7,8 @@ use argon2::{
     PasswordVerifier,
     Version,
 };
-use blake3::Hasher;
+use hkdf::Hkdf;
+use sha2::Sha256;
 use crate::error::{ CryptoError, Result };
 use crate::types::{ SecretKey, Salt };
 
@@ -95,15 +96,13 @@ pub fn derive_password_key(password: &[u8], salt: &Salt, params: KdfParams) -> R
 }
 
 pub fn derive_context_key(master_key: &SecretKey, context: &[u8]) -> Result<SecretKey> {
-    let mut hasher = Hasher::new();
+    let hk = Hkdf::<Sha256>::new(Some(b"megacrypt-v1"), master_key.as_bytes());
 
-    hasher.update(master_key.as_bytes());
-    hasher.update(context);
-    hasher.update(b"megacrypt-context-v1");
-
-    let hash = hasher.finalize();
     let mut key = [0u8; 32];
-    key.copy_from_slice(hash.as_bytes());
+
+    hk
+        .expand(context, &mut key)
+        .map_err(|_| CryptoError::KeyDerivationFailed("HKDF expansion failed".into()))?;
 
     Ok(SecretKey::new(key))
 }

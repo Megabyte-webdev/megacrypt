@@ -88,7 +88,6 @@ mod tests {
             version: 1,
             ciphertext: vec![1, 2, 3, 4, 5],
             nonce: [0; 12],
-            salt: [0; 16],
             context: vec![],
             timestamp: 1234567890,
         };
@@ -106,7 +105,6 @@ mod tests {
             version: 1,
             ciphertext: vec![0xaa, 0xbb],
             nonce: [0; 12],
-            salt: [0; 16],
             context: b"test".to_vec(),
             timestamp: 999,
         };

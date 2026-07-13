@@ -70,8 +70,6 @@ pub struct EncryptedBlob {
     pub ciphertext: Vec<u8>,
     /// Nonce used for encryption
     pub nonce: [u8; 12],
-    /// Salt used in key derivation
-    pub salt: [u8; 16],
     /// Optional additional authenticated data context
     pub context: Vec<u8>,
     /// Timestamp of encryption for audit trail
@@ -192,7 +190,6 @@ mod tests {
             version: 1,
             ciphertext: vec![1, 2, 3],
             nonce: [0; 12],
-            salt: [0; 16],
             context: vec![],
             timestamp: 0,
         };

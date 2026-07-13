@@ -1,6 +1,6 @@
 [package]
 name = "megacrypt"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 description = "A robust cryptographic session engine with domain separation and tamper detection."
 license = "MIT OR Apache-2.0"
@@ -18,6 +18,8 @@ rand = "0.8"
 getrandom = { version = "0.2", features = ["js"] }
 rand_core = "0.6"
 blake3 = "1.5"
+hkdf = "0.12"
+sha2 = "0.10"
 argon2 = "0.5"
 zeroize = { version = "1.7", features = ["derive"] }
 

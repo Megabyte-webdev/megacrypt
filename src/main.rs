@@ -16,7 +16,7 @@ fn main() {
     let engine = CryptoEngine::new(key);
 
     // 3. Encrypt and wrap using the API layer
-    let packet = ApiCrypto::encrypt_request(&engine, b"afo@secure");
+    let packet = ApiCrypto::encrypt_request(&engine, b"afolabi@mubarak");
 
     // This is what you send to frontend / API
     println!("WEB RESPONSE: {}", packet.data);
