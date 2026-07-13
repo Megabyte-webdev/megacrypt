@@ -1,6 +1,6 @@
 [package]
 name = "megacrypt"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "A robust cryptographic session engine with domain separation and tamper detection."
 license = "MIT OR Apache-2.0"
