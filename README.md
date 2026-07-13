@@ -2,7 +2,7 @@
 
 [![Crates.io](https://img.shields.io/crates/v/megacrypt.svg?style=flat-square)](https://crates.io/crates/megacrypt)
 [![npm](https://img.shields.io/npm/v/megacrypt.svg?style=flat-square)](https://www.npmjs.com/package/megacrypt)
-[![CI](https://img.shields.io/github/actions/workflow/status/your-org/megacrypt/ci.yml?style=flat-square)](https://github.com/your-org/megacrypt/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/Megabyte-webdev/megacrypt/ci.yml?style=flat-square)](https://github.com/Megabyte-webdev/megacrypt/actions)
 [![License](https://img.shields.io/badge/license-MIT%20%7C%20Apache--2.0-blue.svg?style=flat-square)](LICENSE)
 
 # Enterprise Cross-Platform End-to-End Encryption Engine
