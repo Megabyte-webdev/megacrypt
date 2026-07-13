@@ -157,43 +157,36 @@ pnpm add megacrypt
 ## Rust Example
 
 ```rust
-use megacrypt::{
-    CryptoEngine,
-    ApiCrypto
-};
+use megacrypt::{ CryptoEngine, derive_password_key };
+use megacrypt::api::ApiCrypto;
+use megacrypt::types::Salt;
+use megacrypt::kdf::KdfParams;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() {
+    // 1. Create a valid 16-byte salt type
+    let salt = Salt::new(*b"megacryptsalt16b");
 
-    let engine = CryptoEngine::new_from_password(
-        b"application-secret"
-    )?;
+    // 2. Supply the missing KdfParams argument (using default parameters)
+    let key = derive_password_key(b"password", &salt, KdfParams::default()).expect(
+        "Failed to derive password key"
+    );
 
+    let engine = CryptoEngine::new(key);
 
     let message = b"confidential message";
 
+    // 3. Encrypt and wrap using the API layer
+    let packet = ApiCrypto::encrypt_request(&engine, message);
 
-    let encrypted =
-        ApiCrypto::encrypt_request(
-            &engine,
-            message
-        )?;
+    // This is what you send to frontend / API
+    println!("WEB RESPONSE: {}", packet.data);
 
+    // 4. Decrypt back
+    let decrypted = ApiCrypto::decrypt_request(&engine, packet);
 
-    let decrypted =
-        ApiCrypto::decrypt_request(
-            &engine,
-            encrypted
-        )?;
-
-
-    assert_eq!(
-        decrypted,
-        message
-    );
-
-
-    Ok(())
+    println!("DECRYPTED: {}", String::from_utf8_lossy(&decrypted));
 }
+
 ```
 
 ---
