@@ -1,6 +1,6 @@
 # MegaCrypt SDK v1.0 - Production-Grade E2E Encryption
 
-**An unbreakable, battle-tested end-to-end encryption system for secure communications, video conferencing, file storage, and APIs.**
+**A sophisticated, battle-tested end-to-end encryption system for secure communications, video conferencing, file storage, and APIs.**
 
 ## Security Guarantees
 

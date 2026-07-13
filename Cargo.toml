@@ -2,8 +2,12 @@
 name = "megacrypt"
 version = "1.0.0"
 edition = "2021"
-description = "Production-grade encryption SDK"
-license = "MIT"
+description = "A robust cryptographic session engine with domain separation and tamper detection."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Megabyte-webdev/megacrypt"
+readme = "README.md"
+keywords = ["crypto", "aead", "chacha20", "domain-separation", "megacrypt", "encryption", "api"]
+categories = ["cryptography"]
 authors = ["Afolabi Mubarak"]
 
 [dependencies]
