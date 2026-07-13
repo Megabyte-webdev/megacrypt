@@ -10,6 +10,7 @@ keywords = ["crypto", "aead", "chacha20", "wasm", "encryption"]
 categories = ["cryptography"]
 authors = ["Afolabi Mubarak"]
 
+
 [dependencies]
 # Core cryptography
 chacha20poly1305 = "0.10"
