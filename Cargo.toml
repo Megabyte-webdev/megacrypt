@@ -6,7 +6,7 @@ description = "A robust cryptographic session engine with domain separation and 
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Megabyte-webdev/megacrypt"
 readme = "README.md"
-keywords = ["crypto", "aead", "chacha20", "domain-separation", "megacrypt", "encryption", "api"]
+keywords = ["crypto", "aead", "chacha20", "wasm", "encryption"]
 categories = ["cryptography"]
 authors = ["Afolabi Mubarak"]
 
